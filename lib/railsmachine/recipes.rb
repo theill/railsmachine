@@ -5,10 +5,11 @@ Capistrano::Configuration.instance(:must_exist).load do
   set :app_symlinks, nil
   set :scm, :subversion 
   set :httpd, :apache
-  set :app_server, :mongrel 
+  set :app_server, :passenger 
   set :db_adapter, :mysql
   set :rails_env, "production"
   set :domain, nil
+  set :use_sudo, false
   
   # mongrel defaults
   set :mongrel_servers, 2

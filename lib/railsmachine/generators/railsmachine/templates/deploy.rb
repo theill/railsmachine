@@ -12,20 +12,20 @@ require 'railsmachine/recipes'
 # correspond to. The deploy_to path must be the path on each machine that will
 # form the root of the application path.
 
+# Login user for ssh.
+set :user, "deploy"
+set :runner, user
+set :admin_runner, user
+
 # The name of your application. Used for directory and file names associated with
 # the application.
 set :application, "<%= singular_name %>"
 
 # Target directory for the application on the web and app servers.
-set :deploy_to, "/var/www/apps/#{application}"
+set :deploy_to, "/home/#{user}/rails/#{application}"
 
 # Primary domain name of your application. Used as a default for all server roles.
 set :domain, "<%= domain_name %>"
-
-# Login user for ssh.
-set :user, "deploy"
-set :runner, user
-set :admin_runner, user
 
 # Rails environment. Used by application setup tasks and migrate tasks.
 set :rails_env, "production"
